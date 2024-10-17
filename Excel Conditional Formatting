@@ -1,0 +1,17 @@
+'DUPLICATE IN RED
+'Assuming: 1) Data in column J
+'          2) String to be highlighted" "Dupl"
+'          3) Themecolor: xlThemeColorAccent2
+    Columns("J:J").Select
+    Selection.FormatConditions.Add Type:=xlTextString, String:="Dupl", _
+        TextOperator:=xlContains
+    Selection.FormatConditions(Selection.FormatConditions.count).SetFirstPriority
+    With Selection.FormatConditions(1).Font
+        .ThemeColor = xlThemeColorAccent2
+        .TintAndShade = 0
+    End With
+    With Selection.FormatConditions(1).Interior
+        .Pattern = xlNone
+        .TintAndShade = 0
+    End With
+    Selection.FormatConditions(1).StopIfTrue = False
