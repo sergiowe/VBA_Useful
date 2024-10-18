@@ -1,0 +1,5 @@
+'ALTERNATE TO THE FILE/WORKBOOK previous_file.xls TO CLOSE IT AND THEN RETURN TO MAIN FILE
+    Windows("previous_file.xls").Activate
+    ActiveWorkbook.Save
+    ActiveWorkbook.Close
+    Windows("main_file.xlsx").Activate
