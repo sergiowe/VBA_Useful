@@ -1,0 +1,22 @@
+'*************************************************
+' *** beginning of WHILE to delete the rows with a certain content (in this case, "CS") until the last row with some content in column E
+    count = 19
+    lastline = "start"
+    Dim cel_e As String
+    cel_e = "E" + CStr(count)
+    
+While count < 501 And lastline <> ""
+    If Range(cel_e).Value = "CS" Then
+    Rows(count).EntireRow.Delete
+        count = count - 1
+    End If
+
+    count = count + 1
+'CHECKING THE NEXT ROW if it is blank, meaning we are in the last row
+    cel_e = "E" + CStr(count)     'loop to cop/pate a condition so the program stops in the last row with a name (or any content) at A column
+    Range(cel_e).Select
+        lastline = Range(cel_e).Value
+Wend
+
+' *** end of WHILE to delete the rows with the content "CS"
+'*************************************************
